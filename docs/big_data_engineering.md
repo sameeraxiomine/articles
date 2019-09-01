@@ -67,7 +67,7 @@ In each of the above instances, you are working with considerably more data than
 
 Storage overhead of Java objects impacts how efficiently the memory hierarchy is utilized. Even if all the data you need is in memory, it is unlikely that L1/L2/L3 caches will be large enough to hold it. This leads to excessive cache evictions slowing performance
 
-##### JVM Storage Overhead impacts Garbage Collection#####
+##### JVM Storage Overhead impacts Garbage Collection #####
 
 The key idea behind Java Garbage Collection is, most object die young. The Java heap memory (JVM Managed Memory) is divided broadly into two regions, young generation and tenured generation. Typically the young generation comprises of 20% of the total managed memory space and the remaining 80% goes to the tenured generation. Objects are allocated to the young generation when they are first created. When the young generation fills up, the minor collection executes. During this phase objects which are no longer referenced are cleared and those still referenced are moved to the tenured generation. Eventually the Major Collection runs when the tenured collection fills up. Major collection will traverse every object in the graph (also known as the sweeping phase) and reclaim memory from the tenured generation. Note that this is a very simplified explanation of Garbage Collection. A detailed and graphic description of Garbage Collection can be found [here](http://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html).
 
@@ -115,7 +115,7 @@ The following techniques enable a high-performance distributed platform-
 4. **Utilize Off-Heap memory** - This option utilizes memory outside the Java Heap using [Java NIO](http://tutorials.jenkov.com/java-nio/index.html) or custom implementation based on the [sun.misc.Unsafe](http://mishadoff.com/blog/java-magic-part-4-sun-dot-misc-dot-unsafe/) package. The goal is to provide interfaces to access the memory not managed by the Java Heap. This memory is never Garbage Collected and hence allows GC to run extremely fast. On the downside, the programmer has to assume responsibility for managing the memory allocated via this route. HBase provides an Off-Heap memory option for its Block Cache. Spark utilizes Off-Heap option during [Shuffle and Cache block transfer process](http://spark.apache.org/docs/latest/configuration.html). Flink is [currently working](https://github.com/apache/flink/pull/290) on providing an Off-Heap option for its Management Memory sub-system.
 
 
-### Framework specific Serialization Schemes###
+### Framework specific Serialization Schemes ###
 
 We discussed this briefly earlier. Let us delve into more details in this section. 
 
