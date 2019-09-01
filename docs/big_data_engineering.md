@@ -1,13 +1,4 @@
-Post management tools menu
 
-Upgrade
-Sameer Wadkar
-
-Only you can see this message
-This story is eligible to be part of the metered paywall. Learn more
-Sameer Wadkar
-Sameer Wadkar
-Sep 1 · 24 min read
 The goal of next generation open-source Big Data frameworks such as Spark and Flink is to match the performance and user-friendly expressiveness of Massively Parallel Processing (MPP) databases such as Netezza. SQL interfaces such as Hive and SparkSQL provide the expressiveness. However, matching the performance is proving to be a much harder hurdle to cross.
 Since all major Big Data Frameworks (Hadoop, Spark, Flink) use the JVM, they are subject to two JVM specific constraints-
 1. Java objects consume considerably more memory than the byte representation of the attributes they contain.
